@@ -6,18 +6,27 @@ const deleteBtn = document.getElementById("delete-btn")
 const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 const tabBtn = document.getElementById("tab-btn")
 
+
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
     render(myLeads)
 }
 
-tabBtn.addEventListener("click", function(){    
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
-        myLeads.push(tabs[0].url)
-        localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-        render(myLeads)
-    })
-})
+
+// Get a reference to the tab button element
+tabBtn.addEventListener("click", function() {
+    // Query the currently active tab in the current window
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+        // Add the URL of the active tab to the myLeads array
+        myLeads.push(tabs[0].url);
+        // Store the updated myLeads array in localStorage
+        localStorage.setItem("myLeads", JSON.stringify(myLeads));
+        // Render the updated list of leads
+        render(myLeads);
+    });
+    // console.log("Clicked") // Debugging log
+});
+
 
 function render(leads) {
     let listItems = ""
