@@ -1,12 +1,19 @@
 {
     "manifest_version": 3,
     "version": "1.0",
-    "name": "Leads tracker",
+    "name": "GrabnGo",
+    "description" : "GrabnGo is a chrome extension that helps you to save your favorite links and access them easily.",
     "action": {
         "default_popup": "index.html",
-        "default_icon": "icon.png"
+        "default_icon": "./icons/icon32.png"
     },
+    
     "permissions": [
         "tabs"
-    ]
+    ],
+    "icons": {
+        "16": "./icons/icon16.png",
+        "32": "./icons/icon32.png"
+    }
 }
+
