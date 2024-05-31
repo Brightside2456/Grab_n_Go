@@ -11,14 +11,24 @@ input {
     box-sizing: border-box;
     border: 1px solid #000;
     margin-bottom: 4px;
+    border-radius: 5px;
+}
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    margin-top: 10px;
+    gap: 10px;
 }
 
 button {
     background: #000;
     color: white;
-    padding: 10px 20px;
+    padding: 15px 20px;
     border: 1px solid #000;
     font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 #delete-btn {

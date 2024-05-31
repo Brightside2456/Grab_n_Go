@@ -1,15 +1,4 @@
-// const axios = require('axios');
-
-
-const options = {
-    method: 'GET',
-    url: 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl',
-    params: {id: 'a7ItChBrY8E'},
-    headers: {
-      'X-RapidAPI-Key': '939820b21emshfc743deb7077005p1458c8jsn5912c3aa0b6b',
-      'X-RapidAPI-Host': 'ytstream-download-youtube-videos.p.rapidapi.com'
-    }
-  };
+import {convert, getRequiredParams} from './test.js'
 
 let myLeads = []
 const inputEl = document.getElementById("input-el")
@@ -26,18 +15,14 @@ if (leadsFromLocalStorage) {
     render(myLeads)
 }
 
-// Code for converting youtube lint to mp4
-// mp4Btn.addEventListener('click', async () => {
-//     let link = inputEl.value
-    
-//     try {
-//         const response = await axios.request(options);
-//         console.log(response.data);
-//     } catch (error) {
-//         console.error(error);
-//     }
-// })
+let link = ''
 
+mp4Btn.addEventListener('click', async () => {
+    link = inputEl.value
+    let result = await convert(link)
+    let stuff = getRequiredParams(result)
+    console.log(stuff)
+})
 
 // Get a reference to the tab button element
 tabBtn.addEventListener("click", function() {

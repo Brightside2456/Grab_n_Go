@@ -1,15 +1,22 @@
 <html>
-    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <input type="text" id="input-el">
+
+<head>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"> -->
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <input type="text" id="input-el" writingsuggestions="true">
+    <div class="btn-container">
         <button id="input-btn">MAKE NOTE</button>
         <button id="mp4-btn">CONVERT TO MP4</button>
         <button id="tab-btn">SAVE TAB</button>
         <button id="delete-btn">DELETE ALL</button>
-        <ul id="ul-el">
-        </ul>
-        <script src="index.js"></script>
-    </body>
+    </div>
+    <ul id="ul-el">
+    </ul>
+    <script src="./index.js" type="module"></script>
+    <script src="./test.js" type="module"></script>
+</body>
+
 </html>
