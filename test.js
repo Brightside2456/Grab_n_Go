@@ -6,6 +6,11 @@ const  convertTime = (timeInSeconds) => {
   let hours = Math.floor(timeInSeconds / 3600);
   let minutes = Math.floor((timeInSeconds % 3600) / 60);
   let seconds = timeInSeconds % 60;
+
+  hours = String(hours).padStart(2, '0');
+  minutes = String(minutes).padStart(2, '0');
+  seconds = String(seconds).padStart(2, '0');
+
   return `${hours}:${minutes}:${seconds}`;
 
 }
@@ -16,9 +21,9 @@ function useRegex(input) {
     return match ? match[1] : false;
 }
 
-
-let id = 'dcsojmN5_jw'
-const url = `https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=${id}`;
+ 
+let id = ''
+let url = `https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=`;
 const options = {
 	method: 'GET',
 	headers: {
@@ -29,12 +34,14 @@ const options = {
 	}
 };
 
-
+  
 // Basically this converts the link and returns the response data (setails)
 const convert = async (link) => {
   try {
     let new_id = useRegex(link);
-    id = new_id;
+    // console.log(new_id)
+    url += new_id;
+    // console.log(url)
     const response = await fetch(url, options);
     let result = await response.text();
     result = JSON.parse(result)
@@ -45,7 +52,7 @@ const convert = async (link) => {
   }
 }
 
-
+// convert('https://www.youtube.com/watch?v=qkgkUCqEum4')
 // Get the response data
 // let result = await convert('https://www.youtube.com/watch?v=dcsojmN5_jw&t=84s');
 
@@ -63,7 +70,7 @@ const getRequiredParams = (result) => {
   //get quality and quality label
   let quality = [];
   result.formats.forEach(element => {
-    quality.push(element.quality, element.qualityLabel);
+    quality.push(element.quality);
   });
   // console.log(quality)
   //get title
@@ -82,7 +89,11 @@ const getRequiredParams = (result) => {
   return { thumbnail, quality, title, lis, urls };
 };
 
+
+// let result = await convert('https://www.youtube.com/watch?v=qkgkUCqEum4')
+// // console.log(result)
 // let stuff = getRequiredParams(result)
+// console.log(stuff)
 
 // console.log(result.formats[0].url)
 export { convertTime, useRegex, convert, getRequiredParams };

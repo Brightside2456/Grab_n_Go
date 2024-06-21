@@ -5,7 +5,8 @@
     "description" : "GrabnGo is a chrome extension that helps you to save your favorite links and access them easily.",
     "action": {
         "default_popup": "index.html",
-        "default_icon": "./icons/icon32.png"
+        "default_icon": "./icons/icon32.png",
+        "default_popup_width": 500
     },
     
     "permissions": [
