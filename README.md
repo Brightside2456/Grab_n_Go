@@ -1,6 +1,7 @@
 # Grab n Go
+My first built app
 
-Quick start:
+## Quick start:
 
 
 
