@@ -5,5 +5,5 @@ My first built app
 
 GrabnGo is a web extension that allows you to track leads.
 
-Updates will be made soon
+Updates will be made soon.
 Thank you.
